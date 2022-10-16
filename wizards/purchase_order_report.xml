@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="purchase_order_report_form" model="ir.ui.view">
+		<field name="name">purchase.order.report.form</field>
+		<field name="model">purchase.order.report</field>
+		<field name="arch" type="xml">
+			<form>
+				<group>
+					<group>
+						<field name="date_from"/>
+						<field name="date_to"/>
+					</group>
+				</group>
+				<footer>
+					<button string="Generar Reporte" name="get_purchase_report" type="object" class="oe_highlight"/>
+					<button string="Cancel" class="oe_link" special="cancel"/>
+				</footer>
+			</form>
+		</field>
+	</record>
+
+	<record id="action_purchase_order_report" model="ir.actions.act_window">
+        <field name="name">Reporte de Ordenes de Compra</field>
+        <field name="res_model">purchase.order.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem id="menu_purchase_order_report" action="action_purchase_order_report" parent="purchase.purchase_report" sequence="2" groups="purchase.group_purchase_manager"/>
+</odoo>
